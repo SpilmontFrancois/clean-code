@@ -1,61 +1,48 @@
-﻿class Game
+﻿using System.Numerics;
+
+public class Game
 {
-    static void Main(string[] args)
+    private List<Player> players = new List<Player>();
+    private bool finished = false;
+     
+    public Game(List<Player> players)
     {
-        Console.WriteLine("Joueur 1, entrez votre nom :");
-        string name1 = Console.ReadLine();
+        this.players = players;
+    }
 
-        Console.WriteLine("Joueur 2, entrez votre nom :");
-        string name2 = Console.ReadLine();
-
-        int counter1 = 0;
-        int counter2 = 0;
-
-        bool finished = false;
-
+    public void start()
+    {
         while (!finished)
         {
-            Console.WriteLine(name1 + ", appuyez sur Entrée pour lancer le dé.");
-            Console.ReadLine();
-
-            Random random = new Random();
-            int dice1 = random.Next(1, 7);
-
-            Console.WriteLine("C'est un " + dice1 + "!");
-
-            counter1 += dice1;
-            if (counter1 == 50)
+            for (int i = 0; i < players.Count; i++)
             {
-                finished = true;
-                Console.WriteLine(name1 + " a gagné !");
-            } else if (counter1 > 50)
-            {
-                counter1 = 25;
-            }
+                rollDice(players[i]);
 
-            Console.WriteLine(name1 + ", vous êtes sur la case " + counter1 + "\n");
-
-            if(counter1 != 50)
-            {
-                Console.WriteLine(name2 + ", appuyez sur Entrée pour lancer le dé.");
-                Console.ReadLine();
-
-                int dice2 = random.Next(1, 7);
-
-                Console.WriteLine("C'est un " + dice2 + "!");
-
-                counter2 += dice2;
-                if (counter2 == 50)
+                if (players[i].getScore() == 50)
                 {
+                    Console.WriteLine(players[i].getName() + " est arrivé sur la case 50 et a gagné !");
                     finished = true;
-                    Console.WriteLine(name2 + " a gagné !");
-                } else if (counter2 > 50)
+                    break;
+                } else if (players[i].getScore() > 50)
                 {
-                    counter2 = 25;
+                    players[i].setScore(25);
                 }
 
-                Console.WriteLine(name2 + ", vous êtes sur la case " + counter2 + "\n");
+                Console.WriteLine(players[i].getName() + ", vous êtes sur la case " + players[i].getScore() + "\n");
             }
+
+            if (finished)
+                break;
         }
+    }
+
+    public static void rollDice(Player player)
+    {
+        Random random = new Random();
+        int dice = random.Next(1, 7);
+
+        Console.WriteLine(player.getName() + " joue... et c'est un " + dice + " !");
+
+        player.setScore(player.getScore() + dice);
     }
 }

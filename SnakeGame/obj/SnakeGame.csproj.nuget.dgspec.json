@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame\\SnakeGame.csproj": {}
+    "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame\\SnakeGame.csproj": {
+    "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+        "projectUniqueName": "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame.csproj",
         "projectName": "SnakeGame",
-        "projectPath": "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+        "projectPath": "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame.csproj",
         "packagesPath": "C:\\Users\\chti8\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\SnakeGame\\obj\\",
+        "outputPath": "C:\\Users\\chti8\\OneDrive\\Bureau\\M2I\\clean-code\\SnakeGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
