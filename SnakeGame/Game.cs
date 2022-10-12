@@ -4,10 +4,12 @@ public class Game
 {
     private List<Player> players = new List<Player>();
     private bool finished = false;
+    private List<int> specialTiles = new List<int>();
      
-    public Game(List<Player> players)
+    public Game(List<Player> players, List<int> specialTiles)
     {
         this.players = players;
+        this.specialTiles = specialTiles;
     }
 
     public void start()
@@ -20,7 +22,7 @@ public class Game
 
                 if (players[i].getScore() == 50)
                 {
-                    Console.WriteLine(players[i].getName() + " est arrivé sur la case 50 et a gagné !");
+                    Console.WriteLine(players[i].getName() + " a gagné la partie !");
                     finished = true;
                     break;
                 } else if (players[i].getScore() > 50)
@@ -28,7 +30,12 @@ public class Game
                     players[i].setScore(25);
                 }
 
-                Console.WriteLine(players[i].getName() + ", vous êtes sur la case " + players[i].getScore() + "\n");
+                if (specialTiles.IndexOf(players[i].getScore()) != -1)
+                {
+                    Console.WriteLine(players[i].getName() + " est tombé sur une case spéciale et peut donc rejouer !");
+                    rollDice(players[i]);
+                }
+                Console.WriteLine("\n");
             }
 
             if (finished)
@@ -44,5 +51,7 @@ public class Game
         Console.WriteLine(player.getName() + " joue... et c'est un " + dice + " !");
 
         player.setScore(player.getScore() + dice);
+
+         Console.WriteLine(player.getName() + ", vous êtes sur la case " + player.getScore());
     }
 }

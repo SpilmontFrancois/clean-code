@@ -12,7 +12,14 @@ class Program
         players.Add(new Player(name1, 0));
         players.Add(new Player(name2, 0));
 
-        Game game = new Game(players);
+        List<int> specialTiles = new List<int>();
+        specialTiles.Add(10);
+        specialTiles.Add(20);
+        specialTiles.Add(30);
+        specialTiles.Add(40);
+        specialTiles.Add(42);
+
+        Game game = new Game(players, specialTiles);
         game.start();
     }
 }
