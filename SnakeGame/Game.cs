@@ -20,21 +20,22 @@ public class Game
             {
                 rollDice(players[i]);
 
-                if (players[i].getScore() == 50)
+                if (players[i].score == 50)
                 {
-                    Console.WriteLine(players[i].getName() + " a gagné la partie !");
+                    Console.WriteLine(players[i].Name + " a gagné la partie !");
                     finished = true;
                     break;
-                } else if (players[i].getScore() > 50)
+                } else if (players[i].score > 50)
                 {
-                    players[i].setScore(25);
+                    players[i].score = 25;
                 }
 
-                if (specialTiles.IndexOf(players[i].getScore()) != -1)
+                if (specialTiles.IndexOf(players[i].score) != -1)
                 {
-                    Console.WriteLine(players[i].getName() + " est tombé sur une case spéciale et peut donc rejouer !");
+                    Console.WriteLine(players[i].Name + " est tombé sur une case spéciale et peut donc rejouer !");
                     rollDice(players[i]);
                 }
+
                 Console.WriteLine("\n");
             }
 
@@ -48,10 +49,10 @@ public class Game
         Random random = new Random();
         int dice = random.Next(1, 7);
 
-        Console.WriteLine(player.getName() + " joue... et c'est un " + dice + " !");
+        Console.WriteLine(player.Name + " joue... et c'est un " + dice + " !");
 
-        player.setScore(player.getScore() + dice);
+        player.score = player.score + dice;
 
-         Console.WriteLine(player.getName() + ", vous êtes sur la case " + player.getScore());
+         Console.WriteLine(player.Name + ", vous êtes sur la case " + player.score);
     }
 }
