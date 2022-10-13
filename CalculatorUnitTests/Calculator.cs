@@ -11,20 +11,20 @@ namespace CalculatorUnitTests_MsTests
 
         private static int GetSum(string numbers)
         {
-            char? delimiter = null;
+            char? customDelimiter = null;
 
             if (numbers.StartsWith("//") && numbers.Contains("\n"))
             {
-                delimiter = numbers[2];
+                customDelimiter = numbers[2];
                 numbers = numbers.Split('\n')[1];
             }
 
-            if (numbers.Contains(",") || numbers.Contains("\n") || delimiter != null)
+            if (numbers.Contains(",") || numbers.Contains("\n") || customDelimiter != null)
             {
                 string[] array;
 
-                if (delimiter != null)
-                    array = numbers.Split((char)delimiter);
+                if (customDelimiter != null)
+                    array = numbers.Split((char)customDelimiter);
                 else
                     array = numbers.Split(new Char[] { ',', '\n' });
 
