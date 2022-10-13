@@ -11,7 +11,7 @@ namespace CalculatorTest
         public void addTwoElements_ShouldReturnRightResult(int number1, int number2, int result)
         {
             var calculator = new Calculator();
-            Assert.AreEqual(calculator.Add(number1, number2), result);
+            Assert.AreEqual(result, calculator.Add(number1, number2));
         }
 
         [TestMethod]
@@ -19,7 +19,7 @@ namespace CalculatorTest
         public void substractTwoElements_ShouldReturnRightResult(int number1, int number2, int result)
         {
             var calculator = new Calculator();
-            Assert.AreEqual(calculator.Substract(number1, number2), result);
+            Assert.AreEqual(result, calculator.Substract(number1, number2));
         }
 
         [TestMethod]
@@ -27,7 +27,7 @@ namespace CalculatorTest
         public void multiplyTwoElements_ShouldReturnRightResult(int number1, int number2, int result)
         {
             var calculator = new Calculator();
-            Assert.AreEqual(calculator.Multiply(number1, number2), result);
+            Assert.AreEqual(result, calculator.Multiply(number1, number2));
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace CalculatorTest
         public void divideTwoElements_ShouldReturnRightResult(int number1, int number2, int result)
         {
             var calculator = new Calculator();
-            Assert.AreEqual(calculator.Divide(number1, number2), result);
+            Assert.AreEqual(result, calculator.Divide(number1, number2));
         }
 
         [TestMethod]
@@ -81,6 +81,7 @@ namespace CalculatorTest
         {
             var calculator = new Calculator();
             calculator.Divide(number1, number2);
+            // Assert.ThrowsException<DivideByZeroException>(() => calculator.Divide(number1, number2));
         }
     }
 }
