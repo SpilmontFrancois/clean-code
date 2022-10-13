@@ -4,7 +4,7 @@ namespace CalculatorUnitTests_MsTests
 {
     public static class Calculator
     {
-        public static object Add(string numbers)
+        public static int Add(string numbers)
         {
             return string.IsNullOrEmpty(numbers) ? 0 : GetSum(numbers);
         }
