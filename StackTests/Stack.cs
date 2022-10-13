@@ -1,34 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StackTests
 {
     internal class Stack
     {
-        internal List<int> Items = new List<int>();
+        private int Size = 0;
+        public List<int> Items = new List<int>();
 
-        internal void Pop()
+        public bool IsEmpty()
         {
-            if (Items.Count == 0)
-                throw new UnderflowException();
-            else
-            {
-                Items.RemoveAt(Items.Count - 1);
-            }
+            return Size == 0;
         }
 
-        internal void Push(int v)
+        public void Push(int v)
         {
+            AddItem(v);
+        }
+
+        public int Pop()
+        {
+            if (IsEmpty())
+                throw new UnderflowException("Cannot Pop on empty Stack");
+
+            return RemoveLastItem();
+        }
+
+        private void AddItem(int v)
+        {
+            Size++;
             Items.Add(v);
         }
 
-        internal bool IsEmpty()
+        private int RemoveLastItem()
         {
-            return Items.Count == 0;
+            var last = Items.Last();
+            Items.Remove(last);
+            Size--;
+            return last;
         }
 
-        internal class UnderflowException : Exception
+        public class UnderflowException : Exception
         {
+            public UnderflowException(string message) : base(message) { }
         }
     }
 }

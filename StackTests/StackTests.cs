@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace StackTests
 {
@@ -54,10 +55,11 @@ namespace StackTests
 
         [TestMethod]
         [DataRow(1)]
+        [DataRow(8)]
         public void AfterPushXFirstElementIsX(int number1)
         {
             _stack.Push(number1);
-            Assert.AreEqual(number1, _stack.Items[0]);
+            Assert.AreEqual(number1, _stack.Items.First());
         }
 
         [TestMethod]
@@ -65,8 +67,7 @@ namespace StackTests
         public void AfterPushXPopDeletesX(int number1)
         {
             _stack.Push(number1);
-            _stack.Pop();
-            Assert.AreEqual(0, _stack.Items.Count);
+            Assert.AreEqual(number1, _stack.Pop());
         }
     }
 }
