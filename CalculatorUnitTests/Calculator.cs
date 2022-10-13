@@ -4,13 +4,16 @@ namespace CalculatorUnitTests_MsTests
 {
     public static class Calculator
     {
-        internal static object Add(string numbers)
+        public static object Add(string numbers)
+        {
+            return string.IsNullOrEmpty(numbers) ? 0 : GetSum(numbers);
+        }
+
+        private static int GetSum(string numbers)
         {
             char? delimiter = null;
 
-            if (numbers == "" || numbers == null)
-                return 0;
-            else if (numbers.StartsWith("//") && numbers.Contains("\n"))
+            if (numbers.StartsWith("//") && numbers.Contains("\n"))
             {
                 delimiter = numbers[2];
                 numbers = numbers.Split('\n')[1];
